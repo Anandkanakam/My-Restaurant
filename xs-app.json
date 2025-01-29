@@ -1,0 +1,10 @@
+{
+  "authenticationMethod": "none", 
+"routes": [
+    {
+      "source": "^/.*",
+      "target": "/my-restaurant",
+      "service": "my-restaurant"
+    }
+  ]
+}

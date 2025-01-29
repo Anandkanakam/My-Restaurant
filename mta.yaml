@@ -1,0 +1,25 @@
+_ID: my-restaurant
+_schema-version: "3.1"
+version: 1.0.0
+
+modules:
+  - name: my-restaurant
+    type: nodejs
+    path: .
+    parameters:
+      memory: 512M
+      disk-quota: 1G
+    build-parameters:
+      builder: nodejs_buildpack
+    requires:
+      - name: my-database-service 
+    properties:
+      env:
+        NODE_ENV: production
+
+resources:
+  - name: my-database-service
+    type: com.sap.xs.hana
+    parameters:
+      dbSchema: my_schema
+      service: hana
